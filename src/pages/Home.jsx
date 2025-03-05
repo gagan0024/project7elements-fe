@@ -1,3 +1,10 @@
+import React from "react";
+import Layout from "../components/shared/Layout";
+
 export default function Home() {
-  return <div className="text-red-400">Home</div>;
+  return (
+    <Layout>
+      <div className="">home</div>
+    </Layout>
+  );
 }
