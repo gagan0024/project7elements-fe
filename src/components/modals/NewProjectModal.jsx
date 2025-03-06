@@ -42,11 +42,32 @@ export default function NewProjectModal({ close }) {
           <div className="flex gap-4 w-full">
             <div className="flex flex-col gap-2 w-1/2">
               <label>Location</label>
-              <input
-                type="text"
-                placeholder="Enter location"
+              <select
+                name="type"
                 className="bg-gray-100 p-2 text-sm rounded border-transparent hover:border-gray-300 focus:ring-gray-300 focus:outline-none focus:border-gray-300"
-              />
+              >
+                <option disabled selected hidden>
+                  Select
+                </option>
+                <option value="Delhi">Delhi</option>
+                <option value="Noida">Noida</option>
+                <option value="Agra">Agra</option>
+                <option value="Lucknow">Lucknow</option>
+                <option value="Jaipur">Jaipur</option>
+                <option value="Bhopal">Bhopal</option>
+                <option value="Indore">Indore</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Nagpur">Nagpur</option>
+                <option value="Pune">Pune</option>
+                <option value="Banglore">Banglore</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Kochi">Kochi</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Patna">Patna</option>
+                <option value="Ahemdabad">Ahemdabad</option>
+                <option value="Surat">Surat</option>
+                <option value="Kolkata">Kolkata</option>
+              </select>
             </div>
             <div className="flex flex-col gap-2 w-1/2">
               <label>Building Type</label>
@@ -57,7 +78,34 @@ export default function NewProjectModal({ close }) {
                 <option disabled selected hidden>
                   Select
                 </option>
-                <option value="Commercial">Commercial</option>
+                <option value="ELEVATED METRO STATION">
+                  ELEVATED METRO STATION
+                </option>
+                <option value="UNDERGROUND METRO STATION">
+                  UNDERGROUND METRO STATION
+                </option>
+                <option value="DEPOT">DEPOT</option>
+                <option value="AIRPORT">AIRPORT</option>
+                <option value="RAILWAY STATIONS">RAILWAY STATIONS</option>
+                <option value="RESIDENTIAL APARTMENTS">
+                  RESIDENTIAL APARTMENTS
+                </option>
+                <option value="HOTELS">HOTELS</option>
+                <option value="MALLS">MALLS</option>
+                <option value="OFFICE BUILDING">OFFICE BUILDING</option>
+                <option value="DATA CENTER">DATA CENTER</option>
+                <option value="CAR SHOWROOM">CAR SHOWROOM</option>
+                <option value="SUPER MARKET">SUPER MARKET</option>
+                <option value="SCHOOL">SCHOOL</option>
+                <option value="COLLEGES">COLLEGES</option>
+                <option value="TRAINING INSTITUTES">TRAINING INSTITUTES</option>
+                <option value="RESTAURANTS">RESTAURANTS</option>
+                <option value="GYM">GYM</option>
+                <option value="SALON AND BEAUTY PARLORS">
+                  SALON AND BEAUTY PARLORS
+                </option>
+                <option value="GAMING ZONES">GAMING ZONES</option>
+                <option value="EXHIBITION HALL">EXHIBITION HALL</option>
               </select>
             </div>
           </div>

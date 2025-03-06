@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Reset from "../../../public/icons/Reset";
 import Upload from "../../../public/icons/Upload";
 import AngleCircle from "../../../public/icons/AngleCircle";
+import { useDispatch, useSelector } from "react-redux";
+import { SetScale } from "../../redux/features/project/projectSlice";
 
 export default function DrawingFileForm() {
   const [scale, setScale] = useState("");
+  const dispatch = useDispatch();
+  const project = useSelector((state) => state.project.scale);
+  useEffect(() => {
+    dispatch(SetScale(scale));
+    console.log(scale);
+  }, [scale]);
   return (
     <div className="p-4 flex flex-col w-full">
       <div className="flex justify-between border-b border-gray-300 pb-2">
