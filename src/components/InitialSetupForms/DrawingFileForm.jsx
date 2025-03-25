@@ -11,7 +11,6 @@ export default function DrawingFileForm() {
   const project = useSelector((state) => state.project.scale);
   useEffect(() => {
     dispatch(SetScale(scale));
-    console.log(scale);
   }, [scale]);
   return (
     <div className="p-4 flex flex-col w-full">

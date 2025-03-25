@@ -1,16 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Upload from "../../../public/icons/Upload";
 
 export default function NewProjectModal({ close }) {
   const [filename, setFilename] = useState("");
+  const [building, setBuilding] = useState("");
+  const [subBuilding, setSubBuilding] = useState([]);
+  const [currentSubBuilding, setCurrentSubBuilding] = useState("");
+  const [level, setLevel] = useState([]);
+  const [currentLevel, setCurrentLevel] = useState("");
 
   const handleUpload = (e) => {
     e.preventDefault();
     const file = e.target.files[0];
-    if (file && file.name.endsWith(".dxf")) {
+    if (file && file.name.endsWith(".obj" || ".OBJ")) {
       const reader = new FileReader();
       reader.onload = (e) => {
-        localStorage.setItem("uploadedDXF", e.target.result);
+        localStorage.setItem("uploadedOBJ", e.target.result);
         setFilename(file.name);
       };
       reader.readAsDataURL(file);
@@ -18,6 +23,61 @@ export default function NewProjectModal({ close }) {
       console.log("File not uploaded");
     }
   };
+  useEffect(() => {
+    if (building == "ELEVATED METRO STATION") {
+      setSubBuilding([
+        "STATION BUILDING",
+        "ANCILLARY BUILDING",
+        "PARKING AREAS",
+      ]);
+    } else if (building == "UNDERGROUND METRO STATION") {
+      setSubBuilding([
+        "STATION BUILDING",
+        "ANCILLARY BUILDING",
+        "UTILITY GALLERY",
+      ]);
+    } else if (building == "DEPOT") {
+      setSubBuilding([
+        "ADMIN BUILDING",
+        "WORKSHOP BUILDING",
+        "PUMP ROOM",
+        "ASS ROOM",
+        "AUTO WASH PLANT",
+        "CLEANING CONTRACTOR STAFF TOILET",
+        "COMPRESSOR ROOM",
+        "ETU",
+        "PIT WHEEL LATHE",
+        "SCRAP YARD",
+        "STORE AND S&T CABLES",
+        "TIME OFFICE AND SECURITY BUILDING",
+        "WELDING PLANT",
+        "STOGE",
+        "STABLING YARD",
+      ]);
+    } else if (building == "RESIDENTIAL BUILDING") {
+      setSubBuilding(["RESIDENTIAL TOWER", "CLUBHOUSE", "COMMERCIAL COMPLEX"]);
+    } else if (building == "OFFICE BUILDING") {
+      setSubBuilding(["OFFICE TOWER"]);
+    } else if (building == "HOTEL BUILDING") {
+      setSubBuilding(["HOTEL BUILDING"]);
+    } else if (building == "MALL") {
+      setSubBuilding(["MALL BUILDING", "ANCILLARY BUILDING"]);
+    } else if (building == "DATA CENTER") {
+      setSubBuilding(["HOTEL BUILDING", "ANCILLARY BUILDING"]);
+    } else if (building == "CAR SHOWROOM") {
+      setSubBuilding(["SHOWROOM"]);
+    } else if (building == "SUPER MARKET") {
+      setSubBuilding([
+        "SUPER MARKET",
+        "RESTAURENTS",
+        "GYM",
+        "SALON AND BEAUTY PARLORS",
+        "GAMING ZONES",
+        "EXHIBITION HALL",
+      ]);
+    }
+  }, [building]);
+
   return (
     <div
       className="fixed inset-0 bg-black/50 flex justify-center items-center z-50"
@@ -74,6 +134,7 @@ export default function NewProjectModal({ close }) {
               <select
                 name="type"
                 className="bg-gray-100 p-2 text-sm rounded border-transparent hover:border-gray-300 focus:ring-gray-300 focus:outline-none focus:border-gray-300"
+                onBlur={(e) => setBuilding(e.target.value)}
               >
                 <option disabled selected hidden>
                   Select
@@ -114,18 +175,24 @@ export default function NewProjectModal({ close }) {
               <label>Sub Building Type</label>
               <select
                 name="type"
+                onBlur={(e) => setCurrentSubBuilding(e.target.value)}
                 className="bg-gray-100 p-2 text-sm rounded border-transparent hover:border-gray-300 focus:ring-gray-300 focus:outline-none focus:border-gray-300"
               >
                 <option disabled selected hidden>
                   Select
                 </option>
-                <option value="Commercial">Commercial</option>
+                {subBuilding.map((sb) => (
+                  <option key={sb} value={sb}>
+                    {sb}
+                  </option>
+                ))}
               </select>
             </div>
             <div className="flex flex-col gap-2 w-1/2">
               <label>Level/Floor Count</label>
               <select
                 name="type"
+                onBlur={(e) => setCurrentLevel(e.target.value)}
                 className="bg-gray-100 p-2 text-sm rounded border-transparent hover:border-gray-300 focus:ring-gray-300 focus:outline-none focus:border-gray-300"
               >
                 <option disabled selected hidden>
@@ -155,11 +222,11 @@ export default function NewProjectModal({ close }) {
             <input
               id="file-upload"
               type="file"
-              accept=".dxf"
+              accept=".obj"
               className="hidden"
               onChange={handleUpload}
             />
-            <div className="text-gray-500 text-xs px-2">File format: DXF</div>
+            <div className="text-gray-500 text-xs px-2">File format: OBJ</div>
           </div>
         </form>
       </div>
