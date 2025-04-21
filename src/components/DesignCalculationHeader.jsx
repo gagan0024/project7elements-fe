@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import BackArrow from "/public/icons/BackArrow";
 import ElectricalIcon from "/public/icons/ElectricalIcon";
 import FireFightIcon from "/public/icons/FireFightIcon";
@@ -7,6 +8,10 @@ import InitialSetupIcon from "/public/icons/InitialSetupIcon";
 import PlumbingIcon from "/public/icons/PlumbingIcon";
 
 export default function DesignCalculationHeader() {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/hvacheat");
+  };
   return (
     <div className=" w-full fixed">
       <div className="flex flex-col bg-white">
@@ -18,7 +23,7 @@ export default function DesignCalculationHeader() {
           <div className="flex gap-8 text-gray-500">
             <div>Initial Setup</div>
             <div>Electrical</div>
-            <div>HVAC</div>
+            <div onClick={handleClick}>HVAC</div>
             <div>Fire Fight</div>
             <div>Plumbing</div>
           </div>
@@ -38,7 +43,11 @@ export default function DesignCalculationHeader() {
           <div className="flex gap-16">
             <InitialSetupIcon color="stroke-gray-600" size="w-8 h-8" />
             <ElectricalIcon color="stroke-gray-600" size="w-8 h-8" />
-            <HVACIcon color="stroke-gray-600" size="w-8 h-8" />
+            <HVACIcon
+              onClick={handleClick}
+              color="stroke-gray-600"
+              size="w-8 h-8"
+            />
             <FireFightIcon color="stroke-gray-600" size="w-8 h-8" />
             <PlumbingIcon color="stroke-gray-600" size="w-8 h-8" />
           </div>

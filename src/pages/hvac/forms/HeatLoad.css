@@ -1,0 +1,42 @@
+.heatload__main {
+  /* border: 1px solid red; */
+  position: absolute;
+  border-radius: 10px;
+  top: 110px;
+  left: 75px;
+  /* background-color: white; */
+  width: 20%;
+  height: calc(100% - 115px);
+  display: flex;
+  overflow: scroll;
+  /* height: 90%; */
+}
+.heatload__main {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer/Edge */
+}
+
+.heatload__main::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+.heatload__second {
+  /* border: 1px solid red; */
+  position: absolute;
+  /* border-radius: 10px; */
+  top: 109px;
+  right: 0px;
+  background-color: white;
+  width: 20%;
+  height: calc(100% - 115px);
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+}
+.heatload__second {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer/Edge */
+}
+
+.heatload__second::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}

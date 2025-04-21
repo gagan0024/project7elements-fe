@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Upload from "../../../public/icons/Upload";
+import { useNavigate } from "react-router-dom";
 
 export default function NewProjectModal({ close }) {
   const [filename, setFilename] = useState("");
@@ -8,6 +9,11 @@ export default function NewProjectModal({ close }) {
   const [currentSubBuilding, setCurrentSubBuilding] = useState("");
   const [level, setLevel] = useState([]);
   const [currentLevel, setCurrentLevel] = useState("");
+  const navigate = useNavigate();
+
+  const handleAddProject = () => {
+    navigate("/initial-setup");
+  };
 
   const handleUpload = (e) => {
     e.preventDefault();
@@ -95,7 +101,10 @@ export default function NewProjectModal({ close }) {
               className="bg-gray-100 w-full p-2 text-sm rounded border border-transparent hover:border-gray-300 focus:ring-gray-300 focus:outline-none focus:border-gray-300"
               placeholder="Project Name"
             />
-            <button className="inline p-2 text-xs bg-blue-500 font-semibold text-white whitespace-nowrap rounded">
+            <button
+              onClick={handleAddProject}
+              className="inline p-2 text-xs bg-blue-500 font-semibold text-white whitespace-nowrap rounded"
+            >
               Add Project
             </button>
           </div>

@@ -1,0 +1,100 @@
+.sidebarHVEC__main_sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px;
+  gap: 8px;
+
+  width: 66px;
+  max-width: 66px;
+  height: 99%;
+  margin-top: 2px;
+  margin-left: 5px;
+
+  background: #ffffff;
+  /* Shadows/Regular */
+  box-shadow: 0px 22px 46px rgba(0, 0, 0, 0.007625),
+    0px 16.0016px 31.0051px rgba(0, 0, 0, 0.013),
+    0px 11.1375px 20.0531px rgba(0, 0, 0, 0.016875),
+    0px 7.30469px 12.4434px rgba(0, 0, 0, 0.02),
+    0px 4.4px 7.475px rgba(0, 0, 0, 0.023125),
+    0px 2.32031px 4.44727px rgba(0, 0, 0, 0.027),
+    0px 0.9625px 2.65937px rgba(0, 0, 0, 0.032375),
+    0px 0.223438px 1.41055px rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  z-index: 1;
+}
+.sidebarHVEC__main {
+  background-color: lightgray;
+  height: calc(100% - 108px);
+  display: flex;
+  overflow: hidden;
+  /* height: 90%; */
+}
+.logo_sidebar_hevc {
+  /* color: rgb(252, 9, 9); */
+  /* Wrapper */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  gap: 8px;
+
+  width: 46px;
+  height: 46px;
+
+  /* background: #0083ee; */
+  border-radius: 6px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  cursor: pointer;
+
+  /* height: 100px; */
+}
+.logo_sidebar_hevc svg {
+  fill: white; /* Default color */
+  stroke: #b3b3b3; /* Default stroke */
+  transition: all 0.3s ease-in-out; /* Smooth transition */
+}
+
+.logo_sidebar_hevc:hover {
+  background-color: rgb(220, 220, 230);
+}
+
+.logo_sidebar_hevc:hover svg {
+  fill: rgb(241, 241, 241); /* Change fill to black */
+  stroke: rgb(0, 0, 0); /* Change stroke to black */
+}
+.tooltip {
+  position: absolute;
+  /* bottom: -px; */
+  left: 9%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 50px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+}
+
+.logo_sidebar_hevc:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}

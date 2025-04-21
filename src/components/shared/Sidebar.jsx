@@ -16,7 +16,11 @@ export default function SideBar() {
       </div>
       <div className="border-b border-gray-300 pb-4">
         <div className="py-2">
-          <SidebarItem image="/svg/home.svg" title="Home" route={"/"} />
+          <SidebarItem
+            image="/svg/home.svg"
+            title="Home"
+            route={"/dashboard"}
+          />
         </div>
         <div className="">
           <div className="p-2 text-gray-500 text-sm">AI Tools</div>
