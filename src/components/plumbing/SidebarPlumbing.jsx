@@ -8,6 +8,8 @@ import FileBckIcon from "../../icons/FileBckIcon";
 import WaterDemandIcon from "../../icons/WaterDemandIcon";
 import WaterSupplyIcon from "../../icons/WaterSupplyIcon";
 import DrainagePipeIcon from "../../icons/DrainagePipeIcon";
+import RainWaterIcon from "../../icons/RainWaterIcon";
+import RWHICON from "../../icons/RWHICON";
 
 function SidebarPlumbing({ activeSection, setActiveSection }) {
   const sidebarItems = [
@@ -16,34 +18,27 @@ function SidebarPlumbing({ activeSection, setActiveSection }) {
     { icon: <DrainagePipeIcon />, id: "drainage-pipe" },
     { icon: <HeadLossIcon />, id: "head-loss" },
     { icon: <FirePumpIcon />, id: "plumbing-pump" },
-    "divider",
-    { icon: <DropletIcon />, id: "flow-setting" },
-    { icon: <CalculationIcon />, id: "calculate" },
-    { icon: <DocumentationIcon />, id: "docs" },
-    { icon: <FileBckIcon />, id: "files" },
+    { icon: <RainWaterIcon />, id: "RainWater-Dropping" },
+    { icon: <RWHICON />, id: "RWH" },
   ];
 
   return (
     <div className="w-[64px] bg-white border-r border-[#E5E7EB] flex flex-col justify-between py-4">
       <div className="flex flex-col items-center gap-6 mt-2">
-        {sidebarItems.map((item, index) =>
-          item === "divider" ? (
-            <div key={index} className="h-[1px] w-8 bg-[#E5E7EB]  mt-0" />
-          ) : (
-            <div
-              key={index}
-              onClick={() => setActiveSection(item.id)}
-              className={`w-10 h-10 flex items-center justify-center rounded-md cursor-pointer transition
-            ${
-              activeSection === item.id
-                ? "bg-[#2E90FA] text-white"
-                : "text-[#6B7280] hover:bg-gray-200"
-            }`}
-            >
-              {item.icon}
-            </div>
-          )
-        )}
+        {sidebarItems.map((item, index) => (
+          <div
+            key={index}
+            onClick={() => setActiveSection(item.id)}
+            className={`w-10 h-10 flex items-center justify-center rounded-md cursor-pointer transition
+              ${
+                activeSection === item.id
+                  ? "bg-[#2E90FA] text-white"
+                  : "text-[#6B7280] hover:bg-gray-200"
+              }`}
+          >
+            {item.icon}
+          </div>
+        ))}
       </div>
     </div>
   );

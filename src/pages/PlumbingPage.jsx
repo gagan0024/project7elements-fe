@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import TopBarSecondary from "../components/TopBarSecondary";
 
 // Content Components
@@ -9,6 +10,8 @@ import HeadLossForm from "../components/fireFight/HeadLossForm";
 import WaterSupplyPipesForm from "../components/plumbing/WaterSupplyPipesForm";
 import DrainagePipesForm from "../components/plumbing/DrainagePipesForm";
 import PlumbingPumpForm from "../components/plumbing/PlumbingPumpForm";
+import RainWaterDropping from "../components/plumbing/RainWaterDropping";
+import RWH from "../components/plumbing/RWH";
 
 export default function PlumbingPage() {
   const [activeSection, setActiveSection] = useState("water-demand"); // Default
@@ -26,6 +29,10 @@ export default function PlumbingPage() {
         return <HeadLossForm />;
       case "plumbing-pump":
         return <PlumbingPumpForm />;
+      case "RainWater-Dropping":
+        return <RainWaterDropping />;
+      case "RWH":
+        return <RWH />;
 
       default:
         return <WaterDemandForm />;
