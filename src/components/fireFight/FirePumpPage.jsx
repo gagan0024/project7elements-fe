@@ -37,7 +37,7 @@ const SelectRow = ({ label, value, onChange, options }) => (
   </div>
 );
 
-const FirePumpPage = () => {
+const FirePumpPage = ({ setData }) => {
   const [pumpType, setPumpType] = useState("Sprinkler Pump");
   const [pdArea, setPdArea] = useState(646);
   const [buildingHeight, setBuildingHeight] = useState(646);
@@ -49,8 +49,32 @@ const FirePumpPage = () => {
   const [totalHead, setTotalHead] = useState(50);
   const [efficiency, setEfficiency] = useState(70);
 
-  const handleCalculate = () => {
-    alert("Calculating Fire Pump...");
+  const handleCalculate = async () => {
+    const res = await fetch("/api/firepump", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        stations: [
+          {
+            station_area: 3000,
+            total_pd_area: 250,
+            station_height: 15,
+            flowrate_lpm: 2250,
+            pipe_material: "MS Pipe",
+            friction_loss_coefficient: 120,
+            pipe_dia: 150,
+            residual_head: 35,
+            total_pressure_loss: 25,
+            efficiency: "80",
+          },
+        ],
+      }),
+    });
+    const result = await res.json();
+    console.log(result.data[0].flowrate_lpm);
+    setData(result.data);
   };
 
   return (

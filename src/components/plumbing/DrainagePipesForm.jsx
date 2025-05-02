@@ -41,7 +41,7 @@ const SelectRow = ({ label, value, onChange, options }) => (
   </div>
 );
 
-const DrainagePipesForm = () => {
+const DrainagePipesForm = ({ setData }) => {
   const [room, setRoom] = useState("");
   const [wc, setWc] = useState(10);
   const [wb, setWb] = useState(10);
@@ -53,8 +53,31 @@ const DrainagePipesForm = () => {
   const [velocity, setVelocity] = useState(1.5);
   const [pipeMaterial, setPipeMaterial] = useState("");
 
-  const handleCalculate = () => {
-    alert("Calculating Drainage...");
+  const handleCalculate = async () => {
+    const res = await fetch("/api/water_drainage_ps", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        plumbing: [
+          {
+            num_wb: 5,
+            num_health_faucet: 5,
+            num_floor_drain: 15,
+            num_service_sink: 2,
+            num_kitchen_sink: 2,
+            num_shower: 1,
+            num_wc: 7,
+            num_urinal: 3,
+            num_urinal_trap: 1,
+          },
+        ],
+      }),
+    });
+    const result = await res.json();
+    console.log(result.data[0].total_raw_water);
+    setData(result.data);
   };
 
   return (
@@ -83,35 +106,25 @@ const DrainagePipesForm = () => {
           onChange={setRoom}
           options={["Toilet", "Bathroom", "Kitchen"]}
         />
-        <InputRow 
-          label="Number of WC" 
-          value={wc} 
-          onChange={setWc} 
-          unit="Nos" 
+        <InputRow label="Number of WC" value={wc} onChange={setWc} unit="Nos" />
+        <InputRow label="Number of WB" value={wb} onChange={setWb} unit="Nos" />
+        <InputRow
+          label="Number of Urinal"
+          value={urinal}
+          onChange={setUrinal}
+          unit="Nos"
         />
-        <InputRow 
-          label="Number of WB" 
-          value={wb} 
-          onChange={setWb} 
-          unit="Nos" 
+        <InputRow
+          label="Number of Shower"
+          value={shower}
+          onChange={setShower}
+          unit="Nos"
         />
-        <InputRow 
-          label="Number of Urinal" 
-          value={urinal} 
-          onChange={setUrinal} 
-          unit="Nos" 
-        />
-        <InputRow 
-          label="Number of Shower" 
-          value={shower} 
-          onChange={setShower} 
-          unit="Nos" 
-        />
-        <InputRow 
-          label="Number of Tap" 
-          value={tap} 
-          onChange={setTap} 
-          unit="Nos" 
+        <InputRow
+          label="Number of Tap"
+          value={tap}
+          onChange={setTap}
+          unit="Nos"
         />
         <InputRow
           label="Total Fixture Unit"

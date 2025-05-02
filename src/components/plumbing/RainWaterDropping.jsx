@@ -31,7 +31,7 @@ const SelectRow = ({ label, value, onChange, options }) => (
   </div>
 );
 
-const RainWaterDropping = () => {
+const RainWaterDropping = ({ setData }) => {
   const [building, setBuilding] = useState("Metro Station");
 
   const [area, setArea] = useState("250");
@@ -39,8 +39,22 @@ const RainWaterDropping = () => {
   const [intensity, setIntensity] = useState("109");
   const [discharge, setDischarge] = useState("0.9");
 
-  const handleCalculate = () => {
-    alert("Form Data:...");
+  const handleCalculate = async () => {
+    const res = await fetch("/api/rainwater_dropping_sizing", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        roof_area_m2: 250,
+        num_pipes: 2,
+        intensity_rainfall_mm_h: 109,
+        coefficient_discharge_c: 0.9,
+      }),
+    });
+    const result = await res.json();
+    console.log(result.data.catchment_area_per_pipe_m2);
+    setData(result.data);
   };
 
   const handleReload = () => {

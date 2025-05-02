@@ -68,7 +68,7 @@ const SelectRow = ({ label, value, onChange, options }) => (
   </div>
 );
 
-const PlumbingPumpForm = () => {
+const PlumbingPumpForm = ({ setData }) => {
   const [building, setBuilding] = useState("Metro Station");
   const [totalWaterDemand, setTotalWaterDemand] = useState("");
   const [fillingTime, setFillingTime] = useState("");
@@ -83,8 +83,27 @@ const PlumbingPumpForm = () => {
   const [efficiency, setEfficiency] = useState("");
   const [fillingTimeUnit] = useState("Hour");
 
-  const handleCalculate = () => {
-    alert("Calculating Plumbing Pump...");
+  const handleCalculate = async () => {
+    const res = await fetch("/api/pump-data", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        totalWater: 10000,
+        fillingTime: 120,
+        stationHeight: 15,
+        pipeMaterial: "MS Pipe",
+        frictionalLossCoefficient: 120,
+        pipeDia: 50,
+        residualHead: 35,
+        totalPressureLoss: 25,
+        efficiency: 80,
+      }),
+    });
+    const result = await res.json();
+    console.log(result.data.flowrateLpm);
+    setData(result.data);
   };
 
   return (

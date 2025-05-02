@@ -12,27 +12,36 @@ import DrainagePipesForm from "../components/plumbing/DrainagePipesForm";
 import PlumbingPumpForm from "../components/plumbing/PlumbingPumpForm";
 import RainWaterDropping from "../components/plumbing/RainWaterDropping";
 import RWH from "../components/plumbing/RWH";
+import WaterDemandModal from "../components/plumbing/WaterDemandModal";
+import RightModal from "../components/shared/RightModal";
+import WaterSupplyPipesModal from "../components/plumbing/WaterSupplyPipesModal";
+import DrainagePipesModal from "../components/plumbing/DrainagePipesModal";
+import PlumbingPumpModal from "../components/plumbing/PlumbingPumpModal";
+import RainWaterDroppingModal from "../components/plumbing/RainWaterDroppingModal";
+import RwhModal from "../components/plumbing/RwhModal";
+import HLFormModal from "../components/fireFight/HLFormModal";
 
 export default function PlumbingPage() {
   const [activeSection, setActiveSection] = useState("water-demand"); // Default
+  const [data, setData] = useState();
 
   const renderContent = () => {
     switch (activeSection) {
       case "water-demand":
-        return <WaterDemandForm />;
+        return <WaterDemandForm setData={setData} />;
       case "water-supply":
-        return <WaterSupplyPipesForm />;
+        return <WaterSupplyPipesForm setData={setData} />;
       case "drainage-pipe":
-        return <DrainagePipesForm />;
+        return <DrainagePipesForm setData={setData} />;
 
       case "head-loss":
-        return <HeadLossForm />;
+        return <HeadLossForm setData={setData} />;
       case "plumbing-pump":
-        return <PlumbingPumpForm />;
+        return <PlumbingPumpForm setData={setData} />;
       case "RainWater-Dropping":
-        return <RainWaterDropping />;
+        return <RainWaterDropping setData={setData} />;
       case "RWH":
-        return <RWH />;
+        return <RWH setData={setData} />;
 
       default:
         return <WaterDemandForm />;
@@ -48,6 +57,27 @@ export default function PlumbingPage() {
           setActiveSection={setActiveSection}
         />
         <div className="flex p-4 overflow-y-auto">{renderContent()}</div>
+        {data && (
+          <RightModal>
+            {activeSection === "water-demand" && (
+              <WaterDemandModal data={data} />
+            )}
+            {activeSection === "water-supply" && (
+              <WaterSupplyPipesModal data={data} />
+            )}
+            {activeSection === "drainage-pipe" && (
+              <DrainagePipesModal data={data} />
+            )}
+            {activeSection === "head-loss" && <HLFormModal data={data} />}
+            {activeSection === "plumbing-pump" && (
+              <PlumbingPumpModal data={data} />
+            )}
+            {activeSection === "RainWater-Dropping" && (
+              <RainWaterDroppingModal data={data} />
+            )}
+            {activeSection === "RWH" && <RwhModal data={data} />}
+          </RightModal>
+        )}
       </div>
     </div>
   );

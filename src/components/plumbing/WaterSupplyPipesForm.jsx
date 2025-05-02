@@ -38,7 +38,7 @@ const SelectRow = ({ label, value, onChange, options }) => (
   </div>
 );
 
-const WaterSupplyPipesForm = () => {
+const WaterSupplyPipesForm = ({ setData }) => {
   const [room, setRoom] = useState("Select");
   const [wc, setWc] = useState(0);
   const [wb, setWb] = useState(0);
@@ -50,8 +50,32 @@ const WaterSupplyPipesForm = () => {
   const [velocity, setVelocity] = useState(0);
   const [material, setMaterial] = useState("Select");
 
-  const handleCalculate = () => {
-    alert("Calculating Water Supply Pipe Results...");
+  const handleCalculate = async () => {
+    const res = await fetch("/api/water_supply_ps", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        water_supply: [
+          {
+            num_wb: 5,
+            num_health_faucet: 5,
+            num_bib_tap: 10,
+            num_service_sink: 2,
+            num_kitchen_sink: 62,
+            num_water_fountain: 1,
+            num_wc: 5,
+            num_urinal: 6,
+            velocity_domestic: 1.2,
+            velocity_flushing: 1.2,
+          },
+        ],
+      }),
+    });
+    const result = await res.json();
+    console.log(result.data[0].total_fixture_unit_flushing);
+    setData(result.data);
   };
 
   return (
@@ -80,53 +104,43 @@ const WaterSupplyPipesForm = () => {
           onChange={setRoom}
           options={["Select", "Bathroom", "Kitchen", "Toilet"]}
         />
-        <InputRow 
-          label="Number of WC" 
-          unit="Nos" 
-          value={wc} 
-          onChange={setWc} 
+        <InputRow label="Number of WC" unit="Nos" value={wc} onChange={setWc} />
+        <InputRow label="Number of WB" unit="Nos" value={wb} onChange={setWb} />
+        <InputRow
+          label="Number of Urinal"
+          unit="Nos"
+          value={urinal}
+          onChange={setUrinal}
         />
-        <InputRow 
-          label="Number of WB" 
-          unit="Nos" 
-          value={wb} 
-          onChange={setWb} 
+        <InputRow
+          label="Number of Shower"
+          unit="Nos"
+          value={shower}
+          onChange={setShower}
         />
-        <InputRow 
-          label="Number of Urinal" 
-          unit="Nos" 
-          value={urinal} 
-          onChange={setUrinal} 
+        <InputRow
+          label="Number of Tap"
+          unit="Nos"
+          value={tap}
+          onChange={setTap}
         />
-        <InputRow 
-          label="Number of Shower" 
-          unit="Nos" 
-          value={shower} 
-          onChange={setShower} 
+        <InputRow
+          label="Total Fixture Unit"
+          unit="FU"
+          value={fixtureUnit}
+          onChange={setFixtureUnit}
         />
-        <InputRow 
-          label="Number of Tap" 
-          unit="Nos" 
-          value={tap} 
-          onChange={setTap} 
+        <InputRow
+          label="Flow Rate Q"
+          unit="m³/s"
+          value={flowRate}
+          onChange={setFlowRate}
         />
-        <InputRow 
-          label="Total Fixture Unit" 
-          unit="FU" 
-          value={fixtureUnit} 
-          onChange={setFixtureUnit} 
-        />
-        <InputRow 
-          label="Flow Rate Q" 
-          unit="m³/s" 
-          value={flowRate} 
-          onChange={setFlowRate} 
-        />
-        <InputRow 
-          label="Velocity" 
-          unit="m/s" 
-          value={velocity} 
-          onChange={setVelocity} 
+        <InputRow
+          label="Velocity"
+          unit="m/s"
+          value={velocity}
+          onChange={setVelocity}
         />
         <SelectRow
           label="Pipe Material"

@@ -31,7 +31,7 @@ const SelectRow = ({ label, value, onChange, options }) => (
   </div>
 );
 
-const RWH = () => {
+const RWH = ({ setData }) => {
   const [building, setBuilding] = useState("Metro Station");
 
   const [area, setArea] = useState("3280");
@@ -40,8 +40,26 @@ const RWH = () => {
 
   const [storageTime, setStorageTime] = useState("5");
 
-  const handleCalculate = () => {
-    alert("Form Data:...");
+  const handleCalculate = async () => {
+    const res = await fetch("/api/rwh_sizing", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        rwh: [
+          {
+            area_m2: 3280,
+            intensity_mmhr: 109,
+            runoff_coefficient: 0.9,
+            storage_time_min: 5,
+          },
+        ],
+      }),
+    });
+    const result = await res.json();
+    console.log(result.data[0].discharge_m3hr);
+    setData(result.data);
   };
 
   const handleReload = () => {
@@ -54,7 +72,7 @@ const RWH = () => {
       <div className="flex justify-between items-start px-4 pt-3 pb-2 border-b border-[#E5E7EB]">
         <div>
           <h2 className="text-[14px] font-semibold text-[#111827] leading-none">
-            Rainwater Dropping
+            RWH
           </h2>
           <p className="text-[11px] text-[#9CA3AF] mt-[4px]">No update yet</p>
         </div>
