@@ -1,0 +1,26 @@
+@import "variable";
+@import "global";
+
+.footer {
+    background: var(--Grey-70, #F2F2F2);
+
+    .container {
+        max-width: 1040px !important;
+    }
+
+    .links-outer {
+        margin-top: 12px;
+    }
+
+    .links-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .bottom-footer {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        border-top: 1px solid var(--Grey-10, #CCC);
+    }
+}

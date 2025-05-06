@@ -1,0 +1,40 @@
+@import "variable";
+@import "global";
+
+.contact-banner {
+    .container {
+        max-width: 1040px !important;
+
+        .contact-col {
+            max-width: 500px;
+            margin: auto;
+        }
+
+        // .form-col {
+
+        //     input,
+        //     textarea {
+        //         color: var(--Grey-30, #808080) !important;
+        //         font-family: var(--primary-font) !important;
+        //         font-size: 14px;
+        //         font-style: normal;
+        //         font-weight: 400;
+        //         line-height: normal;
+        //         padding: 22px 10px;
+        //         border-radius: 6px;
+        //         border: none !important;
+        //         background: var(--Grey-70, #F2F2F2);
+        //         width: 100%;
+
+        //         &:focus-visible {
+        //             outline: none !important;
+        //         }
+        //     }
+
+        //     .primary-solid-btn {
+        //         padding: 22px 16px !important;
+        //         justify-content: center;
+        //     }
+        // }
+    }
+}

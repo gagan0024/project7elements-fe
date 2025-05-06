@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "abouts",
+  "info": {
+    "singularName": "about",
+    "pluralName": "abouts",
+    "displayName": "About",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "blocks.hero-banner",
+        "blocks.card-grid",
+        "blocks.icon-card-section"
+      ]
+    }
+  }
+}

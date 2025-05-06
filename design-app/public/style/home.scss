@@ -1,0 +1,100 @@
+@import "variable";
+@import "global";
+
+.home-banner {
+    .container {
+        max-width: 1040px !important;
+    }
+}
+
+.build-solution {
+    .container {
+        max-width: 1040px !important;
+    }
+}
+
+.try-banner {
+    .container {
+        max-width: 1040px !important;
+    }
+}
+
+.features-detail {
+    .container {
+        max-width: 1200px !important;
+
+        .tab-section {
+            padding: 24px 0 40px 30px;
+
+            .tab-inner {
+                padding: 0 !important;
+                gap: 40px !important;
+                border-radius: 0 !important;
+
+                .tab-button {
+                    padding: 0 !important;
+                    height: auto !important;
+                    background: transparent !important;
+                    border-radius: 0 !important;
+                    min-width: fit-content;
+
+                    .content-inner {
+                        display: flex;
+                        align-items: center;
+                        gap: 4px;
+
+                        p {
+                            color: var(--Grey-20, #4D4D4D);
+                            text-align: center;
+                            font-size: 16px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+                        }
+
+                        img {
+                            opacity: 0;
+                        }
+                    }
+
+                    &[data-hover-unselected="true"] {
+                        opacity: 1 !important;
+                    }
+
+                    &[data-selected="true"] {
+
+                        .content-inner {
+                            display: flex;
+                            align-items: center;
+                            gap: 4px;
+
+                            p {
+                                color: #0083EE;
+
+                            }
+
+                            img {
+                                opacity: 1;
+                            }
+                        }
+
+                        .dark\:bg-default {
+                            background-color: transparent !important;
+                        }
+
+                        .shadow-small {
+                            box-shadow: none !important;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+.integration {
+    .container {
+        max-width: 1040px !important;
+    }
+}

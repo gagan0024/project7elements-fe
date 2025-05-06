@@ -1,0 +1,41 @@
+@import "variable";
+@import "global";
+
+.drawing-calc-banner {
+    .container {
+        max-width: 1040px !important;
+    }
+
+    @media (max-width:767px) {
+        .container {
+            p {
+                br {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.process-section {
+    .container {
+        max-width: 1200px !important;
+
+        @media (max-width:991px) {
+            .calculation-div {
+                .calculation-cards {
+                    display: flex;
+                    flex-direction: column;
+
+                    &:nth-child(even) {
+                        flex-direction: column-reverse;
+                    }
+
+                    .content {
+                        padding-top: 80px;
+                    }
+                }
+            }
+        }
+    }
+}

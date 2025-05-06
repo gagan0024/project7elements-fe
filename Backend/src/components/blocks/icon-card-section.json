@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_blocks_icon_card_sections",
+  "info": {
+    "displayName": "Icon Card Section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "IconCard": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.card-with-icon"
+    }
+  }
+}

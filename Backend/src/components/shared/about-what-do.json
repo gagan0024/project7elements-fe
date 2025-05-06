@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_shared_about_what_dos",
+  "info": {
+    "displayName": "AboutWhatDo",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "CardType": {
+      "type": "enumeration",
+      "enum": [
+        "Primary",
+        "Secondary"
+      ]
+    },
+    "CardTitle": {
+      "type": "string"
+    },
+    "CardDescription": {
+      "type": "blocks"
+    }
+  }
+}

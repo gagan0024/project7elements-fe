@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_blocks_single_title_grids",
+  "info": {
+    "displayName": "SingleTitleGrid"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "string"
+    },
+    "singletitle": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.title-grid"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_blocks_card_grids",
+  "info": {
+    "displayName": "About CardGrid",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "string"
+    },
+    "aboutcards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.about-what-do"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_card_with_icons",
+  "info": {
+    "displayName": "Card With Icon",
+    "icon": "landscape"
+  },
+  "options": {},
+  "attributes": {
+    "Icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    }
+  }
+}

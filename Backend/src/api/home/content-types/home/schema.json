@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "homes",
+  "info": {
+    "singularName": "home",
+    "pluralName": "homes",
+    "displayName": "Home",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "blocks.hero-banner",
+        "blocks.single-title-grid"
+      ]
+    }
+  }
+}

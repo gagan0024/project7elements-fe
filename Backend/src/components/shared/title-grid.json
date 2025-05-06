@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_title_grids",
+  "info": {
+    "displayName": "Title Grid",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "SingleTitle": {
+      "type": "string"
+    }
+  }
+}

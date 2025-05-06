@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--primary-font);
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--Grey-20, #4D4D4D) !important;
+    font-family: var(--primary-font);
+    font-size: 16px !important;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    /* 16px */
+    letter-spacing: -0.48px;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+ul {
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0 !important;
+}
+
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1* var(--bs-gutter-y));
+    margin-right: calc(-0.5* var(--bs-gutter-x));
+    margin-left: calc(-0.5* var(--bs-gutter-x));
+}
+
+.row>* {
+    flex-shrink: 0;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x)* 0.5);
+    padding-left: calc(var(--bs-gutter-x)* 0.5);
+    margin-top: var(--bs-gutter-y);
+}
+
+.container {
+    max-width: 1360px;
+    --bs-gutter-x: 0rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x)* 0.5);
+    padding-left: calc(var(--bs-gutter-x)* 0.5);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+h1 {
+    font-size: $h1-size !important;
+    color: var(--Grey-10, #000);
+    text-align: center;
+    font-family: var(--primary-font);
+    font-style: normal;
+    font-weight: 600 !important;
+    line-height: normal;
+    letter-spacing: -2.2px;
+    margin: 0 !important;
+
+    &.white {
+        color: #FFF !important;
+    }
+}
+
+h2 {
+    font-size: $h2-size !important;
+    color: var(--Grey-10, #000);
+    text-align: center;
+    font-family: var(--primary-font);
+    font-style: normal;
+    font-weight: 600 !important;
+    line-height: normal;
+    letter-spacing: -0.8px;
+    margin: 0 !important;
+
+    &.white {
+        color: #FFF;
+    }
+}
+
+h3 {
+    font-size: $h3-size !important;
+    color: var(--Grey-10, #000);
+    text-align: center;
+    font-family: var(--primary-font);
+    font-style: normal;
+    font-weight: 600 !important;
+    line-height: 140%;
+    /* 33.6px */
+    letter-spacing: -0.24px;
+    margin: 0;
+
+    &.white {
+        color: #FFF !important;
+    }
+}
+
+h4 {
+    font-size: $h4-size !important;
+    color: var(--Grey-10, #000);
+    text-align: center;
+    font-family: var(--primary-font);
+    font-style: normal;
+    font-weight: 600 !important;
+    line-height: normal;
+    letter-spacing: -0.22px;
+    margin: 0 !important;
+}
+
+h5 {
+    font-size: $h5-size !important;
+    color: var(--Grey-10, #000);
+    text-align: center;
+    font-family: var(--primary-font);
+    font-weight: 600 !important;
+    line-height: normal;
+    letter-spacing: -0.2px;
+
+    &.grey {
+        color: var(--Grey-30, #808080);
+        font-weight: 500 !important;
+    }
+}
+
+p {
+    color: var(--Grey-10, #000);
+    font-size: 16px !important;
+    font-family: var(--primary-font);
+    font-weight: 500 !important;
+    font-style: normal;
+    line-height: 135%;
+    /* 21.6px */
+    letter-spacing: 0.16px;
+    margin: 0;
+
+    &.large {
+        font-size: 18px !important;
+    }
+
+    &.small {
+        font-size: 14px !important;
+    }
+
+    &.dark-light {
+        color: var(--Grey-20, #4D4D4D);
+    }
+
+    &.bold {
+        font-weight: 600 !important;
+    }
+
+    &.normal {
+        font-weight: 400 !important;
+    }
+
+    &.white {
+        color: #fff;
+    }
+
+    &.grey {
+        color: var(--Grey-30, #808080);
+    }
+
+    &.light-grey {
+        color: var(--Grey-20, #4D4D4D);
+    }
+}
+
+.padding-80 {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.margin-80 {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.padding-120 {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.bg-gradient {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.00) 0%, #FFF 6.68%), var(--Grey-70, #F2F2F2);
+}
+
+@media (max-width: 991px) {
+    .container {
+        padding: 0 1.5rem !important;
+    }
+
+    .padding-120 {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+}
+
+@media (max-width: 767px) {
+    .container {
+        padding: 0 1rem !important;
+    }
+}
